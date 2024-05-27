@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="echarts.min.js"></script>
+    <style>
+        .title{
+            width: 100%;
+            height: 80px;
+            min-width: 1366px;
+            background: url('title.png') no-repeat;
+            background-size: 100% 100%;
+        }
+        .titleBox{
+            background-image: url("mintitle_1.png");
+            position: relative;
+            width: 100px;
+            height: 30px;
+        }
+        .BarBox{
+            width: 500px;
+            height: 500px;
+            position: relative;
+            top: 100px;
+            height: 450px;
+            left: 75px;
+        }
+    </style>
+</head>
+<body style="background-image: url(true.png);">
+    <div class="title">
+        <h1 style="text-align: center; color: aqua; font-size: 50px;">年龄</h1>
+        <div class="titleBox">
+            <div class="BarBox" id="main">
+    
+            </div>
+        </div>
+    </div>
+    <script>
+        var mycharts = echarts.init(document.getElementById("main"))
+        var option = {
+            title:{
+                text:"zhiyuan",
+                textStyle:{
+                    fontSize:20,
+                    color:'white',
+                },
+                x:'center',
+            },
+            legend:{
+                data:['age'],
+                orient:'vertical',
+                x:'right',
+                y:'center',
+            },
+            xAxis:{
+                type:'category',
+                data:['zhiyuan','zmn','ts'],
+                color:'white',
+                name:'name',
+                nameLocation:'center',
+                nameGap:25,
+                axisLine:{
+                    show:false,
+                },
+                nameTextStyle:{
+                    fontSize:20,
+                    color:'black'
+                },
+            },
+            yAxis:{},
+            tooltip:{},
+            series:{
+                name:'age',
+                type:"bar",
+                data:[20,60,40],
+                itemStyle:{
+                    normal:{
+                        barBorderRadius:[20,20,0,0],
+                        color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgb(10,70,40)'},{offset:1,color:'rgb(10,180,40)'}]),
+                    },
+                },
+                label:{
+                    show:false,
+                    position:'top',
+                    textStyle:{
+                        fontSize:15,
+                    }
+                },
+                emphasis:{
+                    label:{
+                        show:true,
+                    },
+                    itemStyle:{
+                        color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(10,70,40,0.7)'},{offset:1,color:'rgba(10,180,40,0.7)'}])
+                    }
+                },
+                
+            }
+        }
+        mycharts.setOption(option)
+    </script>
+</body>
+</html>
